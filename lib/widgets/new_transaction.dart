@@ -8,6 +8,15 @@ class NewTransaction extends StatelessWidget {
 
   //constructor
   NewTransaction({this.newTxClick});
+  void submitData() {
+    final enteredTitle = titleController.text;
+    final enteredAmount = double.parse(amountController.text);
+
+    if (enteredTitle.isEmpty || enteredAmount <= 0) {
+      return;
+    }
+    newTxClick(enteredTitle, enteredAmount);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,12 +38,11 @@ class NewTransaction extends StatelessWidget {
               decoration: InputDecoration(labelText: 'Amount'),
               // onChanged: (val) => amountInput = val,
               controller: amountController,
+              keyboardType: TextInputType.number,
+              onSubmitted: (_) => submitData(),
             ),
             FlatButton(
-              onPressed: () {
-                newTxClick(
-                    titleController.text, double.parse(amountController.text));
-              },
+              onPressed: () => submitData(),
               child: Text('Add Transaction'),
               textColor: Colors.purple,
             )
