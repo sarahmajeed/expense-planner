@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import './widgets/user_transactions.dart';
+import './widgets/new_transaction.dart';
 
 void main() => runApp(MyApp());
 
@@ -14,8 +15,13 @@ class MyApp extends StatelessWidget {
 }
 
 class HomePage extends StatelessWidget {
-  // String titleInput;
-  // String amountInput;
+  void startAddNewTransaction(BuildContext ctx) {
+    showModalBottomSheet(
+        context: ctx,
+        builder: (bCtx) {
+          return NewTransaction();
+        });
+  }
 
   @override
   Widget build(BuildContext context) {
