@@ -10,7 +10,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Personal Expenses',
-      theme: ThemeData(primarySwatch: Colors.teal),
+      theme: ThemeData(
+          primarySwatch: Colors.teal,
+          fontFamily: 'Quicksand',
+          appBarTheme: AppBarTheme(
+              textTheme: ThemeData.light().textTheme.copyWith(
+                  title: TextStyle(fontFamily: 'OpenSans', fontSize: 20))),
+          textTheme: ThemeData.light().textTheme.copyWith(
+              title: TextStyle(fontFamily: 'OpenSans-Bold', fontSize: 18))),
       home: HomePage(),
     );
   }
@@ -57,7 +64,9 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Personal Expenses'),
+        title: Text(
+          'Personal Expenses',
+        ),
         actions: <Widget>[
           IconButton(
             icon: Icon(
@@ -75,7 +84,7 @@ class _HomePageState extends State<HomePage> {
             width: double.infinity,
             //height: 100,
             child: Card(
-              color: Colors.blue,
+              color: Theme.of(context).primaryColorDark,
               child: Text('CHART!'),
               elevation: 5,
             ),
