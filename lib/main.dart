@@ -12,11 +12,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Personal Expenses',
       theme: ThemeData(
-          primarySwatch: Colors.teal,
+          primarySwatch: Colors.purple,
           fontFamily: 'Quicksand',
           appBarTheme: AppBarTheme(
               textTheme: ThemeData.light().textTheme.copyWith(
-                  headline6: TextStyle(fontFamily: 'OpenSans', fontSize: 20))),
+                  headline6: TextStyle(fontFamily: 'OpenSans', fontSize: 20),
+                  button: TextStyle(color: Colors.white))),
           textTheme: ThemeData.light().textTheme.copyWith(
               headline6: TextStyle(fontFamily: 'OpenSans-Bold', fontSize: 18))),
       home: HomePage(),
